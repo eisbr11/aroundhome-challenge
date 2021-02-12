@@ -1,14 +1,14 @@
 import { createContext, useContext } from 'react';
-import { CompaniesType } from '../types/companies.type';
+import { CompaniesStateType } from 'types/companies.type';
 
 export type CompaniesContextType = {
-  companies: CompaniesType;
-  setCompanies: (companies: CompaniesType) => void;
+  companyState: CompaniesStateType;
+  setCompaniesState: (companiesState: CompaniesStateType) => void;
 };
 
 export const CompaniesContext = createContext<CompaniesContextType>({
-  companies: [],
-  setCompanies: () => console.warn('No provider found'),
+  companyState: { companies: [], isFetching: false },
+  setCompaniesState: () => console.warn('No provider found'),
 });
 
-export const useCompanies = () => useContext(CompaniesContext);
+export const useCompaniesState = () => useContext(CompaniesContext);

@@ -1,15 +1,20 @@
 import React from 'react';
 
-import CompanyContextProvider from 'context/CompanyContextProvider.component';
-import Layout from 'components/Layout/Layout.component';
+import CompaniesContextProvider from 'context/CompaniesContextProvider.component';
+import TimeSlotsScreen from 'screens/TimeSlots.screen';
+
+import codingChallengeTheme from 'themes/codingChallenge.theme';
 import useStyles from 'styles/global.styles';
+import { ThemeProvider } from 'react-jss';
 
 function App() {
   useStyles();
   return (
-    <CompanyContextProvider>
-      <Layout />
-    </CompanyContextProvider>
+    <CompaniesContextProvider>
+      <ThemeProvider theme={codingChallengeTheme}>
+        <TimeSlotsScreen />
+      </ThemeProvider>
+    </CompaniesContextProvider>
   );
 }
 

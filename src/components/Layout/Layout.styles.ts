@@ -5,15 +5,14 @@ const useStyles = createUseStyles({
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
-    background: '#C0FFEE',
+    background: (theme) => theme.colorWhite,
   },
-  container: {
+  main: {
     display: 'flex',
     flex: 1,
-    background: 'green',
-  },
-  h1: {
-    fontStyle: 'italic',
+    padding: [0, 32],
+    background: (theme) => theme.colorWhite,
+    flexDirection: 'column',
   },
 });
 
