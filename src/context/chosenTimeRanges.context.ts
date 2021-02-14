@@ -8,6 +8,7 @@ export type ChosenTimeRangesContextType = {
 
 export const ChosenTimeRangesContext = createContext<ChosenTimeRangesContextType>({
   chosenTimeRangesState: [],
+  // eslint-disable-next-line no-console
   setChosenTimeRanges: () => console.warn('No provider found'),
 });
 

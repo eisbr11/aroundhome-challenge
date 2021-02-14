@@ -17,7 +17,6 @@ const CompaniesContextProvider = ({
     setCompaniesState((prevState) => ({ ...prevState, isFetching: true }));
     const fetchedCompanies = await getCompanies();
 
-    console.log(fetchedCompanies);
     const transformedCompanyData = transformCompanyData(fetchedCompanies);
 
     setCompaniesState({ companies: transformedCompanyData, isFetching: false });
