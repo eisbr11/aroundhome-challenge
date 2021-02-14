@@ -12,8 +12,8 @@ const CompanyTimeSlots = ({
   return (
     <div className={classes.wrapper}>
       {companies.map((company) => {
-        const startTime = '';
-        const endTime = '';
+        const startTime = '2018-07-09T08:00:00.000+02:00';
+        const endTime = '2018-07-09T09:30:00.000+02:00';
         return (
           <TimeSlotColumn
             companyName={company.name}

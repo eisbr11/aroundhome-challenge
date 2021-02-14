@@ -9,7 +9,9 @@ const useStyles = createUseStyles({
     fontSize: 20,
   },
   title: {},
-  subtitle: {},
+  subtitle: {
+    fontSize: 12,
+  },
   body: {
     color: (theme) => theme.colorPrimary,
   },

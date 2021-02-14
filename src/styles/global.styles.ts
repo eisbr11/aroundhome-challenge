@@ -25,7 +25,7 @@ const useStyles = createUseStyles({
       fontWeight: 400,
     },
     a: {
-      textDecoration: 'underline',
+      textDecoration: 'none',
     },
   },
 });

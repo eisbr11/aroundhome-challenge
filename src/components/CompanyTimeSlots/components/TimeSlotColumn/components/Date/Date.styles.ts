@@ -1,11 +1,16 @@
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
-  wrapper: {
+  dayWrapper: {
     display: 'flex',
-    justifyContent: 'center',
-    padding: [16, 0],
-    flexWrap: 'wrap',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  date: {
+
+  },
+  weekDay: {
+    fontWeight: 700,
   },
 });
 

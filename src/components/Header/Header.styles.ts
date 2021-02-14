@@ -7,6 +7,7 @@ const useStyles = createUseStyles({
     justifyContent: 'center',
     background: (theme) => theme.colorWhite,
     boxShadow: '0 0 10px 0 rgb(0 0 0 / 40%)',
+    zIndex: 5,
   },
 });
 

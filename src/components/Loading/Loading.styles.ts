@@ -1,13 +1,12 @@
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
-  footer: {
+  loadingWrapper: {
     display: 'flex',
-    color: (theme) => theme.colorWhite,
-    background: (theme) => theme.colorPrimary,
-    padding: [24, 32],
+    flexDirection: 'column',
     justifyContent: 'center',
-    textAlign: 'center',
+    alignItems: 'center',
+    flex: 1,
   },
 });
 

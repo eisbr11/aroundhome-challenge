@@ -14,7 +14,7 @@ const Layout = ({ children }: LayoutComponentProps) => {
         {children}
       </main>
       <Footer>
-        TESTFooter
+        Coding Challenge by Felix Schliemann
       </Footer>
     </div>
   );

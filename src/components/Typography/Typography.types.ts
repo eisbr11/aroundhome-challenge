@@ -27,4 +27,6 @@ export interface TypographyProps {
    * The content of the component
    */
   children: React.ReactNode,
+
+  className?: string;
 }

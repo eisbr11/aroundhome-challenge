@@ -40,12 +40,15 @@ const sortTimeSlots = (timeSlots: TimeSlot[]): TimeSlot[] => {
  * @param timeSlots
  */
 const groupByDate = (timeSlots: TimeSlot[]): TimeSlotDate[] => {
-  const groups: any = timeSlots.reduce((_groups: any, timeSlot) => {
-    const date = timeSlot.startTime.split('T')[0];
-    return {
-      ..._groups,
-      [date]: timeSlots,
-    };
+  const groups: any = timeSlots.reduce((result: any, timeSlotItem) => {
+    const date = timeSlotItem.startTime.split('T')[0];
+    if (!result[date]) {
+      // eslint-disable-next-line no-param-reassign
+      result[date] = [];
+    }
+    // eslint-disable-next-line no-param-reassign
+    result[date].push(timeSlotItem);
+    return result;
   }, {});
 
   const groupAsArray: TimeSlotDate[] = Object.keys(groups).map((date) => ({

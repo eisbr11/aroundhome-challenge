@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 import { useTheme } from 'react-jss';
 import { TypographyProps } from './Typography.types';
@@ -7,6 +8,7 @@ import useStyles from './Typography.styles';
 const Typography = ({
   tag = 'p',
   variant = 'body',
+  className,
   ...props
 }: TypographyProps) => {
   const CustomTag = tag as keyof JSX.IntrinsicElements;
@@ -15,7 +17,7 @@ const Typography = ({
 
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
-    <CustomTag className={classes[variant]} {...props} />
+    <CustomTag className={clsx(className, classes[variant])} {...props} />
   );
 };
 
