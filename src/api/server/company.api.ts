@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import Config from 'lib/Config';
 
 const companyServer = axios.create({
@@ -8,5 +8,14 @@ const companyServer = axios.create({
     accept: 'application/json',
   },
 });
+
+const handleResponse = ({ data }: AxiosResponse) => data;
+
+const handleError = (error: Error) => Promise.reject(error);
+
+companyServer.interceptors.response.use(
+  handleResponse,
+  handleError,
+);
 
 export default companyServer;

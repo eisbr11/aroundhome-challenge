@@ -11,7 +11,7 @@ const useStyles = createUseStyles({
   title: {},
   subtitle: {},
   body: {
-    color: '#ff0',
+    color: (theme) => theme.colorPrimary,
   },
 });
 

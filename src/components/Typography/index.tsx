@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { useTheme } from 'react-jss';
 import { TypographyProps } from './Typography.types';
 import useStyles from './Typography.styles';
 
@@ -9,7 +10,8 @@ const Typography = ({
   ...props
 }: TypographyProps) => {
   const CustomTag = tag as keyof JSX.IntrinsicElements;
-  const classes = useStyles();
+  const theme = useTheme();
+  const classes = useStyles(theme);
 
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading

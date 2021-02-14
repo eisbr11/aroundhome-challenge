@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 
 import getCompanies from 'api';
-import { CompaniesStateType, Companies } from 'types/companies.type';
+import { CompaniesStateType } from 'types/companies.type';
+import transformCompanyData from 'helper/transformApiData.helper';
 import { CompaniesContext } from './companies.context';
 
 const CompaniesContextProvider = ({
@@ -14,8 +15,12 @@ const CompaniesContextProvider = ({
 
   const fetchData = async () => {
     setCompaniesState((prevState) => ({ ...prevState, isFetching: true }));
-    const fetchedCompanies:Companies = await getCompanies();
-    setCompaniesState({ companies: fetchedCompanies, isFetching: false });
+    const fetchedCompanies = await getCompanies();
+
+    console.log(fetchedCompanies);
+    const transformedCompanyData = transformCompanyData(fetchedCompanies);
+
+    setCompaniesState({ companies: transformedCompanyData, isFetching: false });
   };
 
   useEffect(() => {

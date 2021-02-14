@@ -1,26 +1,36 @@
 import moment from 'moment';
 import 'moment/locale/de';
 
-import { TimeSlot } from 'types/companies.type';
-import Typography from '../../../Typography';
+import { TimeSlotDate } from 'types/companies.type';
+import Typography from 'components/Typography';
+import ChosenTimeRange from '../ChosenTimeRange';
 
 const TimeSlotColumn = ({
-  timeslots = [],
+  timeSlotDates = [],
   companyId,
   companyName,
+  chosenStartTime,
+  chosenEndTime,
 } : {
-  timeslots: TimeSlot[],
+  timeSlotDates: TimeSlotDate[],
   companyId: number,
   companyName: string,
+  chosenStartTime?: string,
+  chosenEndTime?: string,
 }) => {
-  console.log(moment.locale('de'));
+  moment.locale('de');
+
   return (
     <div>
       <Typography variant="h1">{companyName}</Typography>
-      {timeslots.map((timeslot) => (
-        <div key={`${companyId}_${timeslot.start_time}`}>
+      <ChosenTimeRange startTime={chosenStartTime} endTime={chosenEndTime} />
+      {timeSlotDates.map((timeSlotDate) => (
+        <div key={`${companyId}_${timeSlotDate.date}`}>
           <div>
-            {`${moment(timeslot.start_time).format()} - ${moment(timeslot.end_time).format('h:mm a')}`}
+            {moment(timeSlotDate.date).format('YYYY-MM-DD')}
+            {timeSlotDate.timeSlots.map((timeSlot) => (
+              `${moment(timeSlot.startTime).format('LT')} - ${moment(timeSlot.endTime).format('LT')}`
+            ))}
           </div>
         </div>
       ))}

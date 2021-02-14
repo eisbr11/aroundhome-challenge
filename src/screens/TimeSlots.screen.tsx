@@ -2,6 +2,7 @@ import Typography from 'components/Typography';
 import Layout from 'components/Layout';
 import { useCompaniesState } from 'context/companies.context';
 import CompanyTimeSlots from 'components/CompanyTimeSlots';
+import ChosenTimeRangesContextProvider from 'context/ChosenTimeRangesContextProvider.component';
 
 const TimeSlotsScreen = () => {
   const { companyState } = useCompaniesState();
@@ -11,7 +12,9 @@ const TimeSlotsScreen = () => {
       {companyState.isFetching ? (
         <Typography>FETCHING DATA</Typography>
       ) : (
-        <CompanyTimeSlots companies={companyState.companies} />
+        <ChosenTimeRangesContextProvider>
+          <CompanyTimeSlots companies={companyState.companies} />
+        </ChosenTimeRangesContextProvider>
       )}
     </Layout>
   );
