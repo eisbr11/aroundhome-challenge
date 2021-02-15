@@ -5,6 +5,13 @@ import { TimeSlot } from 'types/companies.type';
 
 const moment = extendMoment(Moment);
 
+/**
+ * this checks, if the active Time Slot and the one to compare are the same
+ *
+ * @param {TimeSlot} activeTimeSlot
+ * @param {TimeSlot} compareTimeSlot
+ * @returns {boolean}
+ */
 const isActiveTimeSlot = (activeTimeSlot: TimeSlot, compareTimeSlot: TimeSlot): boolean => {
   const activeTimeSlotRange = moment.range(
     moment(activeTimeSlot.startTime),

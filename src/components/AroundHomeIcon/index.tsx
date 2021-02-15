@@ -1,3 +1,9 @@
+/**
+ * Around Home Icon
+ *
+ * @returns {JSX}
+ * @constructor
+ */
 const AroundHomeIcon = () => (
   <svg width="240px" height="50px" viewBox="0 0 240 50" version="1.1">
     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

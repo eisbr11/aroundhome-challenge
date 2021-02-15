@@ -3,6 +3,13 @@ import { TimeSlotDate } from 'types/companies.type';
 import timeStringFormat from 'helper/timeStringFormat';
 import useStyles from './Date.styles';
 
+/**
+ * shows the date for a column with weekday and date
+ *
+ * @param {TimeSlotDate} timeSlotDate
+ * @returns {JSX}
+ * @constructor
+ */
 const Date = ({
   timeSlotDate,
 }: {

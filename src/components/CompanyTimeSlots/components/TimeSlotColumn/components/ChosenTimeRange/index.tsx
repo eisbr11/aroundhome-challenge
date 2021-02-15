@@ -4,6 +4,14 @@ import Typography from 'components/Typography';
 import timeStringFormat from 'helper/timeStringFormat';
 import useStyles from './ChosenTimeRange.styles';
 
+/**
+ * show a chosen Time Range
+ *
+ * @param {string} startTime
+ * @param {string} endTime
+ * @returns {JSX}
+ * @constructor
+ */
 const ChosenTimeRange = ({
   startTime = '',
   endTime = '',

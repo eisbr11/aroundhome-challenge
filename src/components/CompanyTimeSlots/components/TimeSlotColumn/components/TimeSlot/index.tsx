@@ -8,6 +8,15 @@ import isActiveTimeSlot from 'helper/isActiveTimeSlot';
 import timeStringFormat from 'helper/timeStringFormat';
 import useStyles from './TimeSlot.styles';
 
+/**
+ * a single time slot component
+ *
+ * @param {string} startTime
+ * @param {string} endTime
+ * @param {number} companyId
+ * @returns {JSX}
+ * @constructor
+ */
 const TimeSlot = ({
   startTime,
   endTime,

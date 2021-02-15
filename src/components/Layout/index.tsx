@@ -5,6 +5,12 @@ import Header from 'components/Header';
 import useStyles from './Layout.styles';
 import { LayoutComponentProps } from './Layout.types';
 
+/**
+ * Layout component
+ *
+ * @param {(*)} children
+ * @constructor
+ */
 const Layout = ({ children }: LayoutComponentProps) => {
   const theme = useTheme();
   const classes = useStyles(theme);

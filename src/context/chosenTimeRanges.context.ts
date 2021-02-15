@@ -11,6 +11,11 @@ export type ChosenTimeRangesContextType = {
   getDisabledTimeSlotsForCompany: (companyId: number) => TimeSlot[];
 };
 
+/**
+ * the chosen Time Range context
+ *
+ * @returns {Context}
+ */
 export const ChosenTimeRangesContext = createContext<ChosenTimeRangesContextType>({
   chosenTimeRangesState: [],
   // eslint-disable-next-line no-console

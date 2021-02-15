@@ -5,6 +5,13 @@ import { CompaniesStateType } from 'types/companies.type';
 import transformCompanyData from 'helper/transformApiData.helper';
 import { CompaniesContext } from './companies.context';
 
+/**
+ * The Company Data Context Provider Wrapper
+ *
+ * @param {*} children
+ * @returns {JSX}
+ * @constructor
+ */
 const CompaniesContextProvider = ({
   children,
 }: {

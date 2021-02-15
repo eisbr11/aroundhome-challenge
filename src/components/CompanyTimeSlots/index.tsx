@@ -3,6 +3,13 @@ import { useChosenTimeRangesState } from 'context/chosenTimeRanges.context';
 import TimeSlotColumn from './components/TimeSlotColumn';
 import useStyles from './CompanyTimeSlots.styles';
 
+/**
+ * The Timeslots UI Component
+ *
+ * @param {Companies} companies
+ * @returns {JSX}
+ * @constructor
+ */
 const CompanyTimeSlots = ({
   companies = [],
 } : {

@@ -2,11 +2,22 @@ import { useTheme } from 'react-jss';
 
 import { TimeSlotDate } from 'types/companies.type';
 import Typography from 'components/Typography';
-import ChosenTimeRange from '../ChosenTimeRange';
+import ChosenTimeRange from './components/ChosenTimeRange';
 import useStyles from './TimeSlotColumn.styles';
 import TimeSlot from './components/TimeSlot';
 import Date from './components/Date';
 
+/**
+ * a timeslot column component
+ *
+ * @param {TimeSlotDate[]} timeSlotDates
+ * @param {number} companyId
+ * @param {string} companyName
+ * @param {string} chosenStartTime
+ * @param {string} chosenEndTime
+ * @returns {JSX}
+ * @constructor
+ */
 const TimeSlotColumn = ({
   timeSlotDates = [],
   companyId,

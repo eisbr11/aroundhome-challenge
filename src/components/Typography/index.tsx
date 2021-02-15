@@ -5,6 +5,16 @@ import { useTheme } from 'react-jss';
 import { TypographyProps } from './Typography.types';
 import useStyles from './Typography.styles';
 
+/**
+ * Typography component
+ *
+ * @param {Tag} tag
+ * @param {Variant} variant
+ * @param {string} className
+ * @param {*} props
+ * @returns {JSX}
+ * @constructor
+ */
 const Typography = ({
   tag = 'p',
   variant = 'body',
