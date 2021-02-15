@@ -10,7 +10,7 @@ const useStyles = createUseStyles({
     justifyContent: 'center',
     transition: 'border-color 300ms ease',
     borderRadius: 4,
-    background: (theme) => theme.colorWhite,
+    // background: (theme) => theme.colorWhite,
     color: (theme) => theme.colorPrimary,
 
     '&:hover': {
@@ -21,6 +21,13 @@ const useStyles = createUseStyles({
     background: (theme) => theme.colorPrimary,
     color: (theme) => theme.colorWhite,
     borderColor: (theme) => theme.colorPrimary,
+  },
+  isDisabled: {
+    background: (theme) => theme.colorGrayLight,
+    '&:hover': {
+      borderColor: (theme) => theme.colorGrayLight,
+      cursor: 'not-allowed',
+    },
   },
   timeRange: {
     textAlign: 'center',

@@ -7,6 +7,7 @@ const useStyles = createUseStyles({
     flexDirection: 'column',
     background: (theme) => theme.colorWhite,
     borderRadius: 4,
+    minHeight: 80,
   },
   label: {
     color: (theme) => theme.colorPrimary,

@@ -1,6 +1,7 @@
+import { useTheme } from 'react-jss';
+
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-import { useTheme } from 'react-jss';
 import useStyles from './Layout.styles';
 import { LayoutComponentProps } from './Layout.types';
 

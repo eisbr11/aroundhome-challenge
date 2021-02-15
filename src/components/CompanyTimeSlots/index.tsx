@@ -1,4 +1,5 @@
 import { Companies } from 'types/companies.type';
+import { useChosenTimeRangesState } from 'context/chosenTimeRanges.context';
 import TimeSlotColumn from './components/TimeSlotColumn';
 import useStyles from './CompanyTimeSlots.styles';
 
@@ -8,20 +9,21 @@ const CompanyTimeSlots = ({
   companies: Companies
 }) => {
   const classes = useStyles();
+  const { getTimeSlotByCompanyId } = useChosenTimeRangesState();
 
   return (
     <div className={classes.wrapper}>
       {companies.map((company) => {
-        const startTime = '2018-07-09T08:00:00.000+02:00';
-        const endTime = '2018-07-09T09:30:00.000+02:00';
+        const setTimeSlot = getTimeSlotByCompanyId(company.id);
+
         return (
           <TimeSlotColumn
             companyName={company.name}
             companyId={company.id}
             timeSlotDates={company.timeSlotDates}
             key={company.id}
-            chosenStartTime={startTime}
-            chosenEndTime={endTime}
+            chosenStartTime={setTimeSlot.startTime}
+            chosenEndTime={setTimeSlot.endTime}
           />
         );
       })}

@@ -1,7 +1,6 @@
-import moment from 'moment';
-
 import Typography from 'components/Typography';
 import { TimeSlotDate } from 'types/companies.type';
+import timeStringFormat from 'helper/timeStringFormat';
 import useStyles from './Date.styles';
 
 const Date = ({
@@ -13,10 +12,10 @@ const Date = ({
   return (
     <div className={classes.dayWrapper}>
       <Typography variant="h2" tag="span" className={classes.weekDay}>
-        {moment(timeSlotDate.date).format('dddd')}
+        {timeStringFormat.toWeekDay(timeSlotDate.date)}
       </Typography>
       <Typography variant="subtitle" tag="span" className={classes.date}>
-        {moment(timeSlotDate.date).format('DD.MM YYYY')}
+        {timeStringFormat.toDate(timeSlotDate.date)}
       </Typography>
     </div>
   );

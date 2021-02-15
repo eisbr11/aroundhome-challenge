@@ -1,6 +1,4 @@
 import { useTheme } from 'react-jss';
-import moment from 'moment';
-import 'moment/locale/de';
 
 import { TimeSlotDate } from 'types/companies.type';
 import Typography from 'components/Typography';
@@ -22,7 +20,6 @@ const TimeSlotColumn = ({
   chosenStartTime?: string,
   chosenEndTime?: string,
 }) => {
-  moment.locale('de');
   const theme = useTheme();
   const classes = useStyles(theme);
   return (
@@ -36,7 +33,12 @@ const TimeSlotColumn = ({
           <div className={classes.timeslotWrapper} key={`${companyId}_${timeSlotDate.date}`}>
             <Date timeSlotDate={timeSlotDate} />
             {timeSlotDate.timeSlots.map((timeSlot) => (
-              <TimeSlot key={`${companyId}_${timeSlotDate.date}_${timeSlot.startTime}`} startTime={timeSlot.startTime} endTime={timeSlot.endTime} />
+              <TimeSlot
+                key={`${companyId}_${timeSlotDate.date}_${timeSlot.startTime}`}
+                startTime={timeSlot.startTime}
+                endTime={timeSlot.endTime}
+                companyId={companyId}
+              />
             ))}
           </div>
         ))}
@@ -48,6 +50,6 @@ const TimeSlotColumn = ({
 export default TimeSlotColumn;
 
 TimeSlotColumn.defaultProps = {
-  chosenStartTime: '2018-07-09T08:00:00.000+02:00',
-  chosenEndTime: '2018-07-09T09:30:00.000+02:00',
+  chosenStartTime: '',
+  chosenEndTime: '',
 };

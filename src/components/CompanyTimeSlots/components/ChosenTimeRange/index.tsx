@@ -1,7 +1,7 @@
 import { useTheme } from 'react-jss';
-import moment from 'moment';
 
 import Typography from 'components/Typography';
+import timeStringFormat from 'helper/timeStringFormat';
 import useStyles from './ChosenTimeRange.styles';
 
 const ChosenTimeRange = ({
@@ -21,7 +21,7 @@ const ChosenTimeRange = ({
             Gewählter Zeitraum
           </Typography>
           <Typography tag="span" variant="subtitle" className={classes.chosenDate}>
-            {`${moment(startTime).format('DD.MM YYYY')}, ${moment(startTime).format('LT')} - ${moment(endTime).format('LT')}`}
+            {`${timeStringFormat.toDate(startTime)}, ${timeStringFormat.toTime(startTime)} - ${timeStringFormat.toTime(endTime)}`}
           </Typography>
         </>
       ) : (

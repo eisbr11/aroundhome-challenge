@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ChosenTimeRangesStateType } from 'types/companies.type';
+import { ChosenTimeRangesStateType, TimeSlot } from 'types/companies.type';
 import { ChosenTimeRangesContext } from './chosenTimeRanges.context';
 
 const ChosenTimeRangesContextProvider = ({
@@ -8,19 +8,61 @@ const ChosenTimeRangesContextProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-  const defaultTimeRanges:ChosenTimeRangesStateType = [
-    {
-      companyId: 1,
-      timeslot: {
-        startTime: '2018-07-09T08:00:00.000+02:00',
-        endTime: '2018-07-09T09:30:00.000+02:00',
-      },
-    },
-  ];
+  const defaultTimeRanges:ChosenTimeRangesStateType = [];
   const [chosenTimeRangesState, setChosenTimeRanges] = React.useState(defaultTimeRanges);
 
+  const getTimeSlotByCompanyId = (companyId: number): TimeSlot => {
+    const chosenTimeRange = chosenTimeRangesState.find(
+      (timeRange) => timeRange.companyId === companyId,
+    );
+    return ({
+      startTime: chosenTimeRange ? chosenTimeRange.timeslot.startTime : '',
+      endTime: chosenTimeRange ? chosenTimeRange.timeslot.endTime : '',
+    });
+  };
+
+  const setTimeSlot = (companyId: number, timeslot: TimeSlot) => {
+    setChosenTimeRanges((prevState) => {
+      const filteredPrevState = prevState.filter(
+        (chosenTimeRange) => companyId !== chosenTimeRange.companyId,
+      );
+
+      return (
+        [
+          ...filteredPrevState,
+          {
+            companyId,
+            timeslot,
+          },
+        ]
+      );
+    });
+  };
+
+  const removeTimeSlot = (companyId: number) => {
+    setChosenTimeRanges((prevState) => prevState.filter(
+      (chosenTimeRange) => companyId !== chosenTimeRange.companyId,
+    ));
+  };
+
+  const getDisabledTimeSlotsForCompany = (companyId: number): TimeSlot[] => {
+    const filteredChosenTimeRanges = chosenTimeRangesState.filter(
+      (chosenTimeRange) => companyId !== chosenTimeRange.companyId,
+    );
+
+    return filteredChosenTimeRanges.map((timeRange) => timeRange.timeslot);
+  };
+
   return (
-    <ChosenTimeRangesContext.Provider value={{ chosenTimeRangesState, setChosenTimeRanges }}>
+    <ChosenTimeRangesContext.Provider value={{
+      chosenTimeRangesState,
+      setChosenTimeRanges,
+      getTimeSlotByCompanyId,
+      setTimeSlot,
+      removeTimeSlot,
+      getDisabledTimeSlotsForCompany,
+    }}
+    >
       {children}
     </ChosenTimeRangesContext.Provider>
   );
