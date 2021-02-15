@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+
 import Config from 'lib/Config';
 
 const companyServer = axios.create({

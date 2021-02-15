@@ -1,5 +1,6 @@
-import AroundHomeIcon from 'components/AroundHomeIcon';
 import { useTheme } from 'react-jss';
+
+import AroundHomeIcon from 'components/AroundHomeIcon';
 import useStyles from './Header.styles';
 
 const Header = () => {

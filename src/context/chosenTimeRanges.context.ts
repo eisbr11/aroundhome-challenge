@@ -1,4 +1,5 @@
 import { createContext, useContext } from 'react';
+
 import { ChosenTimeRangesStateType, TimeSlot } from 'types/companies.type';
 
 export type ChosenTimeRangesContextType = {
