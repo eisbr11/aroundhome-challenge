@@ -21,7 +21,7 @@ const Date = ({
       <Typography variant="h2" tag="span" className={classes.weekDay}>
         {timeStringFormat.toWeekDay(timeSlotDate.date)}
       </Typography>
-      <Typography variant="subtitle" tag="span" className={classes.date}>
+      <Typography variant="subtitle" tag="span">
         {timeStringFormat.toDate(timeSlotDate.date)}
       </Typography>
     </div>

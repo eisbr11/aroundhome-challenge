@@ -6,9 +6,6 @@ const useStyles = createUseStyles({
     flexDirection: 'column',
     alignItems: 'center',
   },
-  date: {
-
-  },
   weekDay: {
     fontWeight: 700,
   },

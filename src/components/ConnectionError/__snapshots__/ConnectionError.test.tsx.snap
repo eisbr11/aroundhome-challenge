@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Connection Error Component should render correctly 1`] = `
+<div
+  className="wrapper-0-2-1"
+>
+  <Typography
+    className="errorMessage-0-2-2"
+  >
+    Es konnte keine Verbindung zum Server hergestellt werden.
+  </Typography>
+</div>
+`;

@@ -47,6 +47,9 @@
                 "tsx": "never"
             }
         ],
+        "import/no-extraneous-dependencies": ["error", {
+            "devDependencies": ["**/*.test.ts", "**/*.test.tsx", "src/setupTests.ts"]
+        }],
         "jsx-a11y/anchor-is-valid": "off"
     }
 }
