@@ -10,16 +10,23 @@ const CompaniesContextProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-  const defaultCompaniesState: CompaniesStateType = { companies: [], isFetching: false };
+  const defaultCompaniesState: CompaniesStateType = {
+    companies: [],
+    isFetching: false,
+    hasError: false,
+  };
   const [companyState, setCompaniesState] = React.useState(defaultCompaniesState);
 
   const fetchData = async () => {
     setCompaniesState((prevState) => ({ ...prevState, isFetching: true }));
-    const fetchedCompanies = await getCompanies();
+    try {
+      const fetchedCompanies = await getCompanies();
+      const transformedCompanyData = transformCompanyData(fetchedCompanies);
 
-    const transformedCompanyData = transformCompanyData(fetchedCompanies);
-
-    setCompaniesState({ companies: transformedCompanyData, isFetching: false });
+      setCompaniesState({ companies: transformedCompanyData, isFetching: false, hasError: false });
+    } catch (e) {
+      setCompaniesState({ companies: [], isFetching: false, hasError: true });
+    }
   };
 
   useEffect(() => {

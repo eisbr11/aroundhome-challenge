@@ -1,0 +1,15 @@
+import Typography from 'components/Typography';
+import useStyles from './ConnectionError.styles';
+
+const ConnectionError = () => {
+  const classes = useStyles();
+  return (
+    <div className={classes.wrapper}>
+      <Typography className={classes.errorMessage}>
+        Es konnte keine Verbindung zum Server hergestellt werden.
+      </Typography>
+    </div>
+  );
+};
+
+export default ConnectionError;

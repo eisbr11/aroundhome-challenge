@@ -7,7 +7,7 @@ export type CompaniesContextType = {
 };
 
 export const CompaniesContext = createContext<CompaniesContextType>({
-  companyState: { companies: [], isFetching: false },
+  companyState: { companies: [], isFetching: false, hasError: false },
   // eslint-disable-next-line no-console
   setCompaniesState: () => console.warn('No provider found'),
 });

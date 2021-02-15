@@ -34,6 +34,7 @@ export type Companies = Company[];
 export type CompaniesStateType = {
   companies: Company[],
   isFetching: boolean,
+  hasError: boolean,
 };
 
 export type ChosenTimeRange = {
