@@ -27,9 +27,7 @@ const TimeSlotsScreen = () => {
       {companyState.isFetching ? (
         <Loading />
       ) : (
-        <ChosenTimeRangesContextProvider>
-          <CompanyTimeSlots companies={companyState.companies} />
-        </ChosenTimeRangesContextProvider>
+        <CompanyTimeSlots companies={companyState.companies} />
       )}
     </Layout>
   );

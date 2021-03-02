@@ -2,17 +2,17 @@ import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
   wrapper: {
+    fontSize: 24,
+    fontWeight: 700,
     display: 'flex',
-    justifyContent: 'center',
-    padding: [16, 0],
-    flexWrap: 'wrap',
+    flexDirection: 'column',
   },
-  submitRow: {
-    flex: 1,
-    position: 'sticky',
-    bottom: 0,
-    alignSelf: 'center',
+  input: {
     padding: 16,
+  },
+  label: {
+    width: '100%',
+    display: 'inline-block',
   },
 });
 

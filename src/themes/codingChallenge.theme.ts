@@ -3,6 +3,7 @@ const codingChallengeTheme = {
   colorSecondary: '#e8b000',
   colorWhite: '#FFFFFF',
   colorGrayLight: '#AAAAAA',
+  colorGrayLighter: '#DDDDDD',
   colorGrayDark: '#333333',
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ChosenTimeRangesStateType, TimeSlot } from 'types/companies.type';
+import { ChosenTimeRangesStateType, Companies, TimeSlot } from 'types/companies.type';
 import { ChosenTimeRangesContext } from './chosenTimeRanges.context';
 
 /**
@@ -83,6 +83,25 @@ const ChosenTimeRangesContextProvider = ({
     return filteredChosenTimeRanges.map((timeRange) => timeRange.timeslot);
   };
 
+  const isValid = (companies: Companies): boolean => {
+    let valid = true;
+
+    // make the company ids flat
+    const companyIds = companies.map((company) => company.id);
+
+    const choosenTimeRangesCompanyIds = chosenTimeRangesState.map(
+      (chosenTimeRange) => chosenTimeRange.companyId,
+    );
+
+    companyIds.forEach((companyId) => {
+      if (!choosenTimeRangesCompanyIds.includes(companyId)) {
+        valid = false;
+      }
+    });
+
+    return valid;
+  };
+
   return (
     <ChosenTimeRangesContext.Provider value={{
       chosenTimeRangesState,
@@ -91,6 +110,7 @@ const ChosenTimeRangesContextProvider = ({
       setTimeSlot,
       removeTimeSlot,
       getDisabledTimeSlotsForCompany,
+      isValid,
     }}
     >
       {children}

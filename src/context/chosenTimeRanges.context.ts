@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-import { ChosenTimeRangesStateType, TimeSlot } from 'types/companies.type';
+import { ChosenTimeRangesStateType, Companies, TimeSlot } from 'types/companies.type';
 
 export type ChosenTimeRangesContextType = {
   chosenTimeRangesState: ChosenTimeRangesStateType;
@@ -9,6 +9,7 @@ export type ChosenTimeRangesContextType = {
   setTimeSlot: (companyId: number, timeslot: TimeSlot) => void;
   removeTimeSlot: (companyId: number) => void;
   getDisabledTimeSlotsForCompany: (companyId: number) => TimeSlot[];
+  isValid: (companies: Companies) => boolean;
 };
 
 /**
@@ -29,6 +30,7 @@ export const ChosenTimeRangesContext = createContext<ChosenTimeRangesContextType
   // eslint-disable-next-line no-console
   removeTimeSlot: () => console.warn('No provider found'),
   getDisabledTimeSlotsForCompany: () => [],
+  isValid: () => false,
 });
 
 export const useChosenTimeRangesState = () => useContext(ChosenTimeRangesContext);

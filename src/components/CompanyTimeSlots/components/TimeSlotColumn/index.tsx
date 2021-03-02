@@ -2,7 +2,7 @@ import { useTheme } from 'react-jss';
 
 import { TimeSlotDate } from 'types/companies.type';
 import Typography from 'components/Typography';
-import ChosenTimeRange from './components/ChosenTimeRange';
+import ChosenTimeRange from 'components/ChosenTimeRange';
 import useStyles from './TimeSlotColumn.styles';
 import TimeSlot from './components/TimeSlot';
 import Date from './components/Date';

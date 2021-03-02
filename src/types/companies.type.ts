@@ -50,7 +50,7 @@ type CompanyApi = {
   time_slots: TimeSlotApi[]
 };
 
-type Company = {
+export type Company = {
   /**
    * the id of the company
    */
@@ -97,6 +97,20 @@ export type ChosenTimeRange = {
    * the chosen time slot for a company
    */
   timeslot: TimeSlot,
+};
+
+export interface PostTimeSlots {
+  user_data: UserDataApi;
+  selected_slots: {
+    [company_name: string]: TimeSlot,
+  }
+}
+
+type UserDataApi = {
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone_number: string;
 };
 
 export type ChosenTimeRangesStateType = ChosenTimeRange[];
