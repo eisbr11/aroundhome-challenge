@@ -104,6 +104,7 @@ const ContactForm = withFormik<ContactFormAdditionalProps, ContactFormValues>({
     };
 
     postTimeSlots(postData).then(
+      // eslint-disable-next-line no-console
       (result) => console.info(result),
     );
   },
